@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BackendDev_Case1_Bogani")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b2542e44bbdcaee5202edf04f4119cb8609e3381")]
 [assembly: System.Reflection.AssemblyProductAttribute("BackendDev_Case1_Bogani")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BackendDev_Case1_Bogani")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\C#\\BackendDev_Case1_Bogani\\BackendDev_Case1_Bogani\\BackendDev_Case1_Bogani.csproj": {}
+    "D:\\C#\\Case1\\BackendDev_Case1_Bogani\\BackendDev_Case1_Bogani\\BackendDev_Case1_Bogani.csproj": {}
   },
   "projects": {
-    "D:\\C#\\BackendDev_Case1_Bogani\\BackendDev_Case1_Bogani\\BackendDev_Case1_Bogani.csproj": {
+    "D:\\C#\\Case1\\BackendDev_Case1_Bogani\\BackendDev_Case1_Bogani\\BackendDev_Case1_Bogani.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C#\\BackendDev_Case1_Bogani\\BackendDev_Case1_Bogani\\BackendDev_Case1_Bogani.csproj",
+        "projectUniqueName": "D:\\C#\\Case1\\BackendDev_Case1_Bogani\\BackendDev_Case1_Bogani\\BackendDev_Case1_Bogani.csproj",
         "projectName": "BackendDev_Case1_Bogani",
-        "projectPath": "D:\\C#\\BackendDev_Case1_Bogani\\BackendDev_Case1_Bogani\\BackendDev_Case1_Bogani.csproj",
+        "projectPath": "D:\\C#\\Case1\\BackendDev_Case1_Bogani\\BackendDev_Case1_Bogani\\BackendDev_Case1_Bogani.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "D:\\C#\\BackendDev_Case1_Bogani\\BackendDev_Case1_Bogani\\obj\\",
+        "outputPath": "D:\\C#\\Case1\\BackendDev_Case1_Bogani\\BackendDev_Case1_Bogani\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"

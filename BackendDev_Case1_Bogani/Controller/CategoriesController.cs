@@ -1,114 +1,74 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using BackendDev_Case1_Bogani.Data;
 using BackendDev_Case1_Bogani.DTOs;
-using BackendDev_Case1_Bogani.Model;
+using BackendDev_Case1_Bogani.Services;
 
 namespace BackendDev_Case1_Bogani.Controllers
-{
+{ [Route("api/categories")]
     [ApiController]
-    [Route("api/[controller]")]
     public class CategoriesController : ControllerBase
     {
-        private readonly ECommerceDbContext _context;
+        private readonly ICategoryService _categoryService;
 
-        public CategoriesController(ECommerceDbContext context)
+        public CategoriesController(ICategoryService categoryService)
         {
-            _context = context;
+            _categoryService = categoryService;
         }
 
-        // GET: /api/categories
+        // GET: api/categories
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CategoryDto>>> GetCategories()
+        public async Task<ActionResult<IEnumerable<CategoryDto>>> GetAllCategories()
         {
-            var categories = await _context.Categories
-                .Select(c => new CategoryDto
-                {
-                    Id = c.Id,
-                    Name = c.Name,
-                    Description = c.Description
-                })
-                .ToListAsync();
-
+            var categories = await _categoryService.GetAllCategoriesAsync();
             return Ok(categories);
         }
 
-        // GET: /api/categories/{id}
+        // GET: api/categories/{id}
         [HttpGet("{id}")]
-        public async Task<ActionResult<CategoryDto>> GetCategory(int id)
+        public async Task<ActionResult<CategoryDto>> GetCategoryById(int id)
         {
-            var category = await _context.Categories.FindAsync(id);
-
+            var category = await _categoryService.GetCategoryByIdAsync(id);
             if (category == null)
-            {
                 return NotFound();
-            }
 
-            var categoryDto = new CategoryDto
-            {
-                Id = category.Id,
-                Name = category.Name,
-                Description = category.Description
-            };
-
-            return Ok(categoryDto);
+            return Ok(category);
         }
 
-        // POST: /api/categories
+        // POST: api/categories
         [HttpPost]
-        public async Task<ActionResult<CategoryDto>> CreateCategory(CreateCategoryDto createCategoryDto)
+        public async Task<ActionResult<CategoryDto>> CreateCategory(CategoryDto categoryDto)
         {
-            var category = new Category
-            {
-                Name = createCategoryDto.Name,
-                Description = createCategoryDto.Description
-            };
-
-            _context.Categories.Add(category);
-            await _context.SaveChangesAsync();
-
-            var categoryDto = new CategoryDto
-            {
-                Id = category.Id,
-                Name = category.Name,
-                Description = category.Description
-            };
-
-            return CreatedAtAction(nameof(GetCategory), new { id = category.Id }, categoryDto);
+            var createdCategory = await _categoryService.CreateCategoryAsync(categoryDto);
+            return CreatedAtAction(nameof(GetCategoryById), new { id = createdCategory.Id }, createdCategory);
         }
 
-        // PUT: /api/categories/{id}
+        // PUT: api/categories/{id}
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCategory(int id, UpdateCategoryDto updateCategoryDto)
+        public async Task<IActionResult> UpdateCategory(int id, CategoryDto categoryDto)
         {
-            var category = await _context.Categories.FindAsync(id);
-
-            if (category == null)
+            try
+            {
+                await _categoryService.UpdateCategoryAsync(id, categoryDto);
+            }
+            catch (KeyNotFoundException)
             {
                 return NotFound();
             }
-
-            category.Name = updateCategoryDto.Name;
-            category.Description = updateCategoryDto.Description;
-
-            await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        // DELETE: /api/categories/{id}
+        // DELETE: api/categories/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
-            var category = await _context.Categories.FindAsync(id);
-
-            if (category == null)
+            try
+            {
+                await _categoryService.DeleteCategoryAsync(id);
+            }
+            catch (KeyNotFoundException)
             {
                 return NotFound();
             }
-
-            _context.Categories.Remove(category);
-            await _context.SaveChangesAsync();
 
             return NoContent();
         }

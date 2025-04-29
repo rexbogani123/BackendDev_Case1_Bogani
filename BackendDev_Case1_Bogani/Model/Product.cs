@@ -12,6 +12,7 @@ namespace BackendDev_Case1_Bogani.Model
         public string Description { get; set; } = string.Empty;
         public decimal Price { get; set; }
         public int StockQuantity { get; set; }
-         public List<Category> Categories { get; set; } = new();
+        public ICollection<Category> Categories { get; set; } = new List<Category>();
+         public ICollection<ProductCategory> ProductCategories { get; set; } = new List<ProductCategory>();
     }
 }

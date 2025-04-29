@@ -7,7 +7,7 @@
 
 - In appsettings.json, configure your database:
   "ConnectionStrings": {
-    "DefaultConnection": "Server=YOUR_SERVER;Database=EcomProductManagementDB;Trusted_Connection=True;"
+    "DefaultConnection": "Server=YOUR_SERVER;Database=exerciseDB;Trusted_Connection=True;"
   }
 
 # Apply EF Core Migrations

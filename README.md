@@ -18,4 +18,4 @@
 # Run the Application
 
 - dotnet run
-- The API will start on: http://localhost:5063 (or configured port)
+- The API will start on: http://localhost:5000 (or configured port)

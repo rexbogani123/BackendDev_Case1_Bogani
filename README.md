@@ -1,6 +1,6 @@
 # Setup Instructions
 
-- Extract the zip file
+- Clone project or Extract the zip file
 - Open the solution in Visual Studio Code or your preferred IDE.
 
 # Update Connection String

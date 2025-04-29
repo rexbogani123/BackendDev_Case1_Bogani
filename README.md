@@ -12,6 +12,7 @@
 
 # Apply EF Core Migrations
 
+Type this on your terminal:
 - dotnet ef migrations add InitialCreate
 - dotnet ef database update
 

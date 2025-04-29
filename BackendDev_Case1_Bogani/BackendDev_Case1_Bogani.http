@@ -1,0 +1,6 @@
+@BackendDev_Case1_Bogani_HostAddress = http://localhost:5063
+
+GET {{BackendDev_Case1_Bogani_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
